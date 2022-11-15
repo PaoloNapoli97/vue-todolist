@@ -55,3 +55,7 @@ button[type=submit] {
     display: flex;
     justify-content: space-between;
 }
+
+.isDone{
+    text-decoration: line-through;
+}

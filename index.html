@@ -23,7 +23,7 @@
             <div class="task-container">
                 <ul v-if="todoList.length > 0">
                     <li class="task" v-for="(todo, index) in todoList">
-                        {{todo}}
+                        <p :class="{'isDone': isActive === index}" @click="isActive = index">{{todo}}</p>
                         <i class="fa-solid fa-xmark" @click="removeTodo(index)"></i>
                     </li>
                 </ul>

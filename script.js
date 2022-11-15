@@ -3,6 +3,7 @@ const { createApp} = Vue;
 createApp({
         data() {
             return {
+                isActive: false,
                 newTodo: '',
                 todoList: [
                     'Fare i compiti',
@@ -18,6 +19,9 @@ createApp({
             },
             removeTodo(i) {
                 this.todoList.splice(i, 1);
+            },
+            myfilter: function() {
+                this.isActive = !this.isActive;
             }
         }
     
