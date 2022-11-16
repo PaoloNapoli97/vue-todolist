@@ -3,25 +3,43 @@ const { createApp} = Vue;
 createApp({
         data() {
             return {
-                isActive: false,
                 newTodo: '',
                 todoList: [
-                    'Fare i compiti',
-                    'Fare la spesa',
-                    'Andare dalla Nonna'
+                    {
+                        text: 'Fare i compiti',
+                        done: false,
+                    },
+                    {
+                        text: 'Fare la spesa',
+                        done: false,
+                    },
+                    {
+                        text: 'Andare dalla Nonna',
+                        done: false,
+                    }
                 ]
             }
         },
         methods: {
             addTodo() {
-                this.todoList.push(this.newTodo);
+                // this.todoList.push(this.newTodo);
+                // this.newTodo = '';
+                const objNewTodo = {
+                    text: this.newTodo,
+                    done: false
+                };
+                this.todoList.push(objNewTodo);
                 this.newTodo = '';
             },
             removeTodo(i) {
                 this.todoList.splice(i, 1);
             },
-            myfilter: function() {
-                this.isActive = !this.isActive;
+            // myfilter: function() {
+            //     this.isActive = !this.isActive;
+            // }
+            // ES in classe
+            onClickTodo(todo) {
+                todo.done = todo.done ? false : true;
             }
         }
     

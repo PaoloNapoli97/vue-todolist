@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
     <main>
@@ -23,7 +24,8 @@
             <div class="task-container">
                 <ul v-if="todoList.length > 0">
                     <li class="task" v-for="(todo, index) in todoList">
-                        <p :class="{'isDone': isActive === index}" @click="isActive = index">{{todo}}</p>
+                        <!-- <span :class="{'isDone': isActive === index}" @click="isActive = index">{{todo}}</span> -->
+                        <span :class="{'is-done': todo.done}" @click="onClickTodo(todo)"> {{todo.text}} </span>
                         <i class="fa-solid fa-xmark" @click="removeTodo(index)"></i>
                     </li>
                 </ul>
@@ -32,7 +34,7 @@
         </div>
     </main>
 
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
     <script src="script.js"></script>
 </body>
 </html>
